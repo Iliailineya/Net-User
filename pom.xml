@@ -21,6 +21,16 @@
             <artifactId>netty-all</artifactId>
             <version>4.1.91.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.28</version>
+        </dependency>
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.40.1.0</version> <!-- Укажите актуальную версию -->
+        </dependency>
     </dependencies>
 
 </project>
