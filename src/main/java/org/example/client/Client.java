@@ -9,17 +9,17 @@ import java.util.logging.Logger;
 
 public class Client {
     private static boolean flag = true;
-
+    public static Scanner scanner = new Scanner(System.in);
     private static final Logger logger = Logger.getLogger(Client.class.getName());
 
     public static void start() {
         LogConfig.configureLogging("client");
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Welcome to the chat application!");
-        System.out.print("Do you want to enter the chat? Y/N: ");
-        String option = scanner.nextLine();
+        System.out.println("Welcome to the chat application!");
+        System.out.print("Do you want to enter the chat? ");
         do {
+            System.out.println("Type Y/N: ");
+            String option = scanner.nextLine();
             if (option.equalsIgnoreCase("Y")) {
                 handleChatEntry(scanner);
                 flag = false;
@@ -29,12 +29,12 @@ public class Client {
                 flag = false;
             } else {
                 System.out.print("Unknown option. Please try again.");
-                logger.warning("Unknown option: "+ option);
+                logger.warning("Unknown option: " + option);
             }
         } while (flag);
     }
 
-    private static void handleChatEntry(Scanner scanner) {
+    public static void handleChatEntry(Scanner scanner) {
         System.out.print("Please enter your name: ");
         String userName = scanner.nextLine();
 
@@ -45,7 +45,7 @@ public class Client {
         }
     }
 
-    private static void handleExistingUser(Scanner scanner, String userName){
+    private static void handleExistingUser(Scanner scanner, String userName) {
         System.out.print("Please enter your password: ");
 
         do {
@@ -71,8 +71,9 @@ public class Client {
 
     private static void handleNewUser(Scanner scanner, String userName) {
         logger.info("User not found in the database.");
-        System.out.print("Do you want to register? Y/N: ");
+        System.out.print("Do you want to register? ");
         do {
+            System.out.print("Type Y/N: ");
             String option = scanner.nextLine();
             if (option.equalsIgnoreCase("Y")) {
                 System.out.print("Please enter a new password: ");
@@ -87,9 +88,12 @@ public class Client {
                     System.out.print("Registration failed. Please try again.");
                     logger.warning("Registration failed.");
                 }
-            } else {
+            } else if ((option.equalsIgnoreCase("N"))) {
                 System.out.print("Goodbye.");
                 flag = false;
+            } else {
+                System.out.print("Unknown option. Please try again.");
+                logger.warning("Unknown option: " + option);
             }
         } while (flag);
     }
