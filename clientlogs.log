@@ -1,10 +1,2 @@
-окт. 03, 2023 4:02:11 AM org.example.client.Client start
-INFO: Welcome to the chat application!
-окт. 03, 2023 4:02:21 AM org.example.client.Client handleChatEntry
-INFO: Please enter your name: 
-окт. 03, 2023 4:04:47 AM org.example.client.Client handleExistingUser
-INFO: Please enter your password: 
-окт. 03, 2023 4:04:49 AM org.example.client.Client handleExistingUser
-INFO: Welcome, Tom.
-Type your message to chat or type "/quit" to exit.
-
+окт. 04, 2023 3:04:37 PM org.example.client.Client handleNewUser
+INFO: User not found in the database.
